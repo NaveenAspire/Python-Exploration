@@ -1,6 +1,10 @@
 import boto3
 import os
-from acesskey import access_key_id,secret_access_key
+
+with open("access.txt", "r") as file:
+    data = file.readlines()
+    access_key_id = data[0].strip("\n")
+    secret_access_key = data[1].strip("\n")
 
 client = boto3.client('s3', aws_access_key_id= access_key_id,
  aws_secret_access_key = secret_access_key)
