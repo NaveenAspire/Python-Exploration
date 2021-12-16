@@ -3,6 +3,8 @@ import boto3
 from botocore.exceptions import ClientError
 import logging
 
+logging.basicConfig(format='Date-Time : %(asctime)s : Line No. : %(lineno)d - %(message)s',level = logging.ERROR)
+
 ''' This class have the AWS functions '''
 class Functions :
 
@@ -69,4 +71,4 @@ jsonPath = "s3://asignbucket/emp.json"
 csvPath = "s3://asignbucket/emp.csv"
 
 aws.read_json_file(jsonPath)
-aws.read_csv_file(csvPath)  
+aws.read_csv_file(csvPath)    
