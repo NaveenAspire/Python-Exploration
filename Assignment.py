@@ -69,4 +69,4 @@ jsonPath = "s3://asignbucket/emp.json"
 csvPath = "s3://asignbucket/emp.csv"
 
 aws.read_json_file(jsonPath)
-aws.read_csv_file(csvPath)    
+aws.read_csv_file(csvPath)  
