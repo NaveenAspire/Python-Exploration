@@ -19,55 +19,55 @@ print(s3)
 
 #Creating Bucket
 
-s3.create_bucket(ACL='private',Bucket='bucketaveen')
+# s3.create_bucket(ACL='private',Bucket='bucketaveen')
 
 #Uploading File
 
-file = "emp.csv"
-s3.upload_file(file,"bucketaveen",file)
+# file = "emp.csv"
+# s3.upload_file(file,"bucketaveen",file)
 
 
 #List Buckets
 
-for bucket in s3.list_buckets()['Buckets']:
-    print(bucket['Name'])
+# for bucket in s3.list_buckets()['Buckets']:
+#     print(bucket['Name'])
 
 # buckets = [bucket for bucket in s3.buckets.all()]
 # print(buckets)
 
 #Delete Items in Bucket
 
-s3.delete_objects(Bucket='bucketaveen',Delete={
-    'Objects':[{
-        'Key':'emp.csv'
-    },],
-    'Quiet':True|False
-})
+# s3.delete_objects(Bucket='bucketaveen',Delete={
+#     'Objects':[{
+#         'Key':'emp.csv'
+#     },],
+#     'Quiet':True|False
+# })
 
 #Get all objects in a Bucket
 
-response = s3.list_objects(Bucket='bucketaveen')
-print(response['Contents'])
+# response = s3.list_objects(Bucket='bucketaveen')
+# print(response['Contents'])
 
 
 #Get Object
 
-response = s3.get_object(Bucket='bucketaveen',Key = 'emp.csv')
-d = response['Body'].read()
-print(len(d))
-print(type(d))
+# response = s3.get_object(Bucket='bucketaveen',Key = 'emp.csv')
+# d = response['Body'].read()
+# print(len(d))
+# print(type(d))
 
-with open("s3emp.csv",'wb') as f:
-    f.write(d)
+# with open("s3emp.csv",'wb') as f:
+#     f.write(d)
 
 
 #Read CSV file from Bucket
 
-path = 's3://bucketaveen/emp.csv'
-df = pd.read_csv(path)
-print(df.head())
+# path = 's3://bucketaveen/emp.csv'
+# df = pd.read_csv(path)
+# print(df.head())
 
-#Resource Object
+# #Resource Object
 
 s3 = boto3.resource('s3', 
     aws_access_key_id = aws_acess_key,
@@ -75,10 +75,15 @@ s3 = boto3.resource('s3',
 print(s3)
 
 
-#Deleting Bucket
-bucket = s3.Bucket('bucketaveen')
-bucket.delete()
+# #Deleting Bucket
+# bucket = s3.Bucket('bucketaveen')
+# bucket.delete()
 
+# Cpoy the object from one bucket to another bucket
+
+
+copy_source = {'Bucket' : 'firsttestbuct', 'Key': 'Courier bill - Reimbursement.jpg'}
+s3.Object('bucketaveen', 'Courier bill - Reimbursement.jpg').copy(copy_source)
 
 
 

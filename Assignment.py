@@ -2,6 +2,7 @@ import pandas as pd
 import boto3
 from botocore.exceptions import ClientError
 import logging
+import argparse
 
 logging.basicConfig(format='Date-Time : %(asctime)s : Line No. : %(lineno)d - %(message)s',level = logging.ERROR)
 
@@ -53,8 +54,12 @@ print(s3)
 aws = Functions()
 
 #Create Bucket
+parser = argparse.ArgumentParser(description="Give an input as bucket name")
+parser.add_argument('bucket', type=str, default= 'asignbucket', help = "Name of the S3 bucket")
+args = parser.parse_args()
 
-bucket_name = "asignbucket"
+
+bucket_name = args.bucket
 aws.create_bucket(bucket_name)
 
 #Upload fiels into Bucket

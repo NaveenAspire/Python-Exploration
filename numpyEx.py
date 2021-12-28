@@ -42,3 +42,28 @@ print("\n Dimension of above array",trdarr.ndim,"\n")
 ndarr = np.array([1,2,3,4,5], ndmin=6)
 print(ndarr)
 print("\n Dimension of above array",ndarr.ndim,"\n")
+
+# filter an array
+
+arr = np.array([1,2,3,4,5,6])
+
+even = []
+odd  = []
+
+for i in arr:
+    if i%2 == 0:
+        even.append(True)
+        odd.append(False)
+    else:
+        odd.append(True)
+        even.append(False)
+
+oarr = arr[odd]
+
+earr = arr[even]
+
+print("These are odd numbers :",oarr)
+print()
+print("These are even numbers :",earr)
+
+
