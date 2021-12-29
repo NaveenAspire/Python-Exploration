@@ -3,17 +3,11 @@ import boto3
 import pandas as pd
 import csv
 
-with open("access.txt", "r") as file:
-    data = file.readlines()
-    aws_acess_key = data[0].strip("\n")
-    aws_secret_key = data[1].strip("\n")
 
 
 #Client Object
 
-s3 = boto3.client('s3', 
-    aws_access_key_id = aws_acess_key,
-    aws_secret_access_key = aws_secret_key)
+s3 = boto3.client('s3')
 print(s3)
 
 
@@ -46,8 +40,8 @@ print(s3)
 
 #Get all objects in a Bucket
 
-# response = s3.list_objects(Bucket='bucketaveen')
-# print(response['Contents'])
+response = s3.list_objects(Bucket='bucketaveen')
+print(response['Contents'])
 
 
 #Get Object
@@ -63,15 +57,13 @@ print(s3)
 
 #Read CSV file from Bucket
 
-# path = 's3://bucketaveen/emp.csv'
-# df = pd.read_csv(path)
-# print(df.head())
+path = 's3://asignbucket/emp.csv'
+df = pd.read_csv(path)
+print(df.head())
 
 # #Resource Object
 
-s3 = boto3.resource('s3', 
-    aws_access_key_id = aws_acess_key,
-    aws_secret_access_key = aws_secret_key)
+s3 = boto3.resource('s3')
 print(s3)
 
 
