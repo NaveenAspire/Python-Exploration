@@ -1,8 +1,9 @@
+"""This module has pandas operations and store the pytho file in aws s3  service"""
+import logging
+import argparse
 import pandas as pd
 import boto3
 from botocore.exceptions import ClientError
-import logging
-import argparse
 
 logging.basicConfig(
     format="Date-Time : %(asctime)s : Line No. : %(lineno)d - %(message)s",
