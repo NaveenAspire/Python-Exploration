@@ -1,3 +1,4 @@
+"""This module contains numpy operations"""
 import numpy as np
 
 print(np.__version__)
@@ -7,7 +8,6 @@ lsarr = np.array([1, 2, 3, 4])
 print(lsarr)
 
 print(type(lsarr))
-
 
 tparr = np.array((1, 2, 3, 4, 5))
 print("Accessing first element of 1-d array : ", tparr[0])

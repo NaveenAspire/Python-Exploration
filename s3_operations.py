@@ -1,9 +1,8 @@
+"""This module contains s3 operations code example"""
 from os import path
+import csv
 import boto3
 import pandas as pd
-import csv
-
-
 
 #Client Object
 
@@ -57,8 +56,8 @@ print(response['Contents'])
 
 #Read CSV file from Bucket
 
-path = 's3://asignbucket/emp.csv'
-df = pd.read_csv(path)
+PATH = 's3://asignbucket/emp.csv'
+df = pd.read_csv(PATH)
 print(df.head())
 
 # #Resource Object
@@ -76,6 +75,3 @@ print(s3)
 
 copy_source = {'Bucket' : 'firsttestbuct', 'Key': 'Courier bill - Reimbursement.jpg'}
 s3.Object('bucketaveen', 'Courier bill - Reimbursement.jpg').copy(copy_source)
-
-
-

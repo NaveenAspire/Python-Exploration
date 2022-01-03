@@ -1,3 +1,4 @@
+"""This module contains pandas example code"""
 import pandas as pd
 
 print("Series Result.......")
