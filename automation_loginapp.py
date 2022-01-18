@@ -1,7 +1,6 @@
 """This program is script for atomation of login on my bank application"""
 
 import argparse
-from ast import parse
 from selenium import webdriver
 
 parser = argparse.ArgumentParser()
